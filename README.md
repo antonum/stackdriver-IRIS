@@ -25,7 +25,7 @@ It takes up to 25 minutes for uptime stats to show up in StackDriver.
 ### cconsole.log
 
 - Adjust with your specific paths and add to `/etc/google-fluentd/config.d` file `iris.conf`
-- Restart stackdriver agent: sudo service google-fluentd restart
+- Restart stackdriver agent: `sudo service google-fluentd restart`
 
 cconsole.log messages should appear under 'intersystems' tag in stackdriver logs
 
@@ -33,10 +33,10 @@ cconsole.log messages should appear under 'intersystems' tag in stackdriver logs
 
 - Load GCP.StackDriver class into %SYS namespace
 - Test creation of the dashboard.log file:
-`$csession IRIS -U\%SYS "##class(GCP.StackDriver).DashboardToFile()"`
+`csession IRIS -U\%SYS "##class(GCP.StackDriver).DashboardToFile()"`
 Check /usr/IRIS/mgr/dashboard.log file
 - Adjust with your specific paths and add to `/etc/google-fluentd/config.d` file `irid-dashboard.conf`
-- Restart stackdriver agent: sudo service google-fluentd restart
+- Restart stackdriver agent: `sudo service google-fluentd restart`
 - Create cronjob to update dashboard stats every minute. Add the following line to crontab: 
 `* * * * * csession IRIS -U\%SYS "##class(GCP.StackDriver).DashboardToFile()"`
 
