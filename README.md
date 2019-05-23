@@ -29,6 +29,7 @@ It takes up to 25 minutes for uptime stats to show up in StackDriver.
 
 cconsole.log messages should appear under 'intersystems' tag in stackdriver logs
 
+
 ### IRIS Dashboard
 
 - Load GCP.StackDriver class into %SYS namespace
@@ -40,3 +41,9 @@ Check /usr/IRIS/mgr/dashboard.log file
 - Create cronjob to update dashboard stats every minute. Add the following line to crontab: 
 `* * * * * csession IRIS -U\%SYS "##class(GCP.StackDriver).DashboardToFile()"`
 
+## Uptime Check
+![Uptime Check](https://github.com/antonum/stackdriver-IRIS/blob/master/images/uptime_check.png)
+## Log
+![Log](https://github.com/antonum/stackdriver-IRIS/blob/master/images/log.png)
+## Dashboard
+![Dashboard](https://github.com/antonum/stackdriver-IRIS/blob/master/images/dashboard.png)
